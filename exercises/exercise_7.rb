@@ -9,4 +9,13 @@ require_relative './exercise_6'
 puts "Exercise 7"
 puts "----------"
 
-# Your code goes here ...
+class Validations < ActiveRecord::Base
+
+  puts "Enter a store name: "
+  input = gets.chomp
+  create = Store.create(name: input)
+  # Store.create(name: 'Burnaby', annual_revenue: 300000, mens_apparel: true, womens_apparel: true)
+  # create.errors.each_slice(1) { |msg| puts msg }
+  puts create.errors.full_messages
+
+end

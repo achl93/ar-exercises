@@ -7,4 +7,12 @@ require_relative './exercise_4'
 puts "Exercise 5"
 puts "----------"
 
-# Your code goes here ...
+class Calculations < ActiveRecord::Base
+
+@revenue_sum = Store.all.sum(:annual_revenue)
+puts @revenue_sum
+puts "#{@revenue_sum / Store.count}"
+@big_earners = Store.where("annual_revenue > ?", 1000000).size
+puts @big_earners
+
+end
