@@ -18,4 +18,9 @@ class Validations < ActiveRecord::Base
   # create.errors.each_slice(1) { |msg| puts msg }
   puts create.errors.full_messages
 
+  puts "Enter an employee name: "
+  input_two = gets.chomp
+  hire = Employee.create(first_name: input_two)
+  puts hire.errors.full_messages
+
 end
